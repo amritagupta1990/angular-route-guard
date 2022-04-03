@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppService } from './services/app.service';
 import { AuthGuardService } from './services/auth-guard.service';
@@ -15,6 +15,8 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import { UserRolesComponent } from './components/user-roles/user-roles.component';
 import { UserBasicDetailsComponent } from './components/user-basic-details/user-basic-details.component';
 import { AuthGuardChildService } from './services/auth-guard-child.service';
+import { UserFormComponent } from './components/user-form/user-form.component';
+import { AuthDeactivateService } from './services/auth-deactivate.service';
 
 @NgModule({
   declarations: [
@@ -24,15 +26,17 @@ import { AuthGuardChildService } from './services/auth-guard-child.service';
     UsersComponent,
     UserDetailsComponent,
     UserRolesComponent,
-    UserBasicDetailsComponent
+    UserBasicDetailsComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [AppService, AuthGuardService, AuthService, AuthGuardChildService],
+  providers: [AppService, AuthGuardService, AuthService, AuthGuardChildService, AuthDeactivateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

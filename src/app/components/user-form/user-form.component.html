@@ -1,0 +1,9 @@
+<div class="form-container mt-5">
+    <textarea class="form-control" placeholder="Write Something here and click on cancel." rows="10" [(ngModel)]="bio"></textarea>
+    <button class="btn btn-primary-outline mt-4 mr-4" routerLink="/dashboard">
+        Cancel
+    </button>
+    <button class="btn btn-primary mt-4" (click)="save()">
+        Save
+    </button>
+</div>

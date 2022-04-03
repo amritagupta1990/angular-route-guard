@@ -8,6 +8,8 @@ import { UserRolesComponent } from "./components/user-roles/user-roles.component
 import { UsersComponent } from "./components/users/users.component";
 import { AuthGuardService } from "./services/auth-guard.service";
 import { AuthGuardChildService } from './services/auth-guard-child.service';
+import { UserFormComponent } from "./components/user-form/user-form.component";
+import { AuthDeactivateService } from './services/auth-deactivate.service';
 const routes: Routes = [
     {
         path: "", component: LoginComponent
@@ -18,6 +20,9 @@ const routes: Routes = [
     {
         path: "users", component: UsersComponent, canActivate: [AuthGuardService]
     },
+    {
+        path: "user-bio-form", component: UserFormComponent, canActivate: [AuthGuardService], canDeactivate: [AuthDeactivateService]
+    }, 
     {
         path: "user-detail/:id", component: UserDetailsComponent, canActivate: [AuthGuardService],
         canActivateChild: [AuthGuardChildService],
