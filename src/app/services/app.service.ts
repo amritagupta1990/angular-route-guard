@@ -2,25 +2,18 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { map } from "rxjs";
-interface User{
- name: string;
- email: string;
- password: string;
-};
+import { Users } from "../models/users.model";
 @Injectable()
 export class AppService{
-    userList: User[];
+    userList: Users[];
     constructor(private http: HttpClient, private router: Router) {}
     userLogin(email:string, password:string){
-        this.getUserList().subscribe((userList: User[]) => {
+        this.getUserList().subscribe((userList: Users[]) => {
             let filteredList = userList.filter((el) => {
                return (el.email === email && el.password === password);
             });
             if(filteredList.length > 0){
-                let userinfo = {
-                    email,
-                    password
-                };
+                let userinfo = filteredList[0];
                 localStorage.setItem('data-set', btoa(JSON.stringify(userinfo)));
                 this.router.navigate(['/dashboard']);
             }else{
@@ -29,6 +22,6 @@ export class AppService{
         });
     }
     getUserList(){
-        return this.http.get<User[]>('./assets/data/users.json').pipe(map(data=>data));
+        return this.http.get<Users[]>('./assets/data/users.json').pipe(map(data=>data));
     }
 }

@@ -1,10 +1,14 @@
 [{
+    "id": 1,
     "name": "Amrita Gupta",
     "email": "gupta1.amrita@gmail.com",
-    "password": "12345"
+    "password": "12345",
+    "userDetailsAccess": true
 },
 {
+    "id": 2,
     "name": "Test User",
     "email": "test.user@gmail.com",
-    "password": "12345"
+    "password": "12345",
+    "userDetailsAccess": false
 }]

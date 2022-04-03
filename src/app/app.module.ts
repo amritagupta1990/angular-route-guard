@@ -10,12 +10,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppService } from './services/app.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
+import { UsersComponent } from './components/users/users.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { UserRolesComponent } from './components/user-roles/user-roles.component';
+import { UserBasicDetailsComponent } from './components/user-basic-details/user-basic-details.component';
+import { AuthGuardChildService } from './services/auth-guard-child.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    UsersComponent,
+    UserDetailsComponent,
+    UserRolesComponent,
+    UserBasicDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +32,7 @@ import { AuthService } from './services/auth.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AppService, AuthGuardService, AuthService],
+  providers: [AppService, AuthGuardService, AuthService, AuthGuardChildService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
